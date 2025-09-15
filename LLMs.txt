@@ -1,0 +1,35 @@
+# responsive_llms.py
+# This file contains a list of alternative (responsive) summarization models,
+# along with their Hugging Face links and brief descriptions.
+# These can be used as fallbacks in case the primary model fails.
+
+responsive_llms = [
+    {
+        "name": "google/pegasus-xsum",
+        "url": "https://huggingface.co/google/pegasus-xsum",
+        "description": "A summarization model trained on the XSum dataset, known for generating concise summaries."
+    },
+    {
+        "name": "facebook/bart-large-cnn",
+        "url": "https://huggingface.co/facebook/bart-large-cnn",
+        "description": "A popular BART-based summarization model that produces high-quality, reliable summaries."
+    },
+    {
+        "name": "sshleifer/distilbart-cnn-12-6",
+        "url": "https://huggingface.co/sshleifer/distilbart-cnn-12-6",
+        "description": "A distilled version of BART for summarization, offering a good balance of speed and performance."
+    },
+    {
+        "name": "t5-base",
+        "url": "https://huggingface.co/t5-base",
+        "description": "A versatile T5 model that can be fine-tuned for various NLP tasks, including summarization."
+    },
+    {
+        "name": "allenai/led-base-16384",
+        "url": "https://huggingface.co/allenai/led-base-16384",
+        "description": "Designed for long document summarization, ideal for handling extensive input texts."
+    }
+]
+
+# Users can import this file into their projects to quickly switch to a fallback model
+# by iterating over the 'responsive_llms' list and selecting a model that suits their needs.
