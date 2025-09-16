@@ -43,4 +43,40 @@ if __name__ == "__main__":
     user_name = input("Your name: ").strip()
     if not user_name:
         user_name = "User"
-    print(Fore.GREEN + Style.BRIGHT + f"\n???? Hello, {user_name}! Let's summarize some text. Enter some text")
+    print(Fore.GREEN + Style.BRIGHT + f"\n???? Hello, {user_name}! Let's summarize some text:")
+
+
+    print(Fore.YELLOW + Style.BRIGHT + "\n???? Please enter the text you want to summarize:")
+    user_text = input("> ").strip()
+
+    if not user_text:
+        print(Fore.RED + "No text provided. Exiting.")
+    else:
+        print(Fore.YELLOW + "\nEnter the model name you want to use (e.g., google/pegasus-xsum): ")
+    model_choice = input("Model Name (leave blank for default): ").strip()
+    if not model_choice:
+        model_choice = DEFAULT_MODEL
+
+
+    print(Fore.YELLOW + "\nChoose your summary style: ")
+    print("1. Standard Summary (Quick & Concise)") 
+    print("2. Detailed Summary (In-depth & Comprehensive)")   
+    style_choice = input("Enter 1 or 2: ").strip()
+
+    if style_choice == "2":
+        min_length = 80
+        max_length = 200
+        print(Fore.BLUE + "Enhancing summary detail... ????")
+    else:
+        min_length = 50
+        max_length = 150
+        print(Fore.BLUE + "Generating standard summary... ????")
+
+    summary = summarize_text(user_text, min_length, max_length, model_name=model_choice)
+
+    if summary:
+        print(Fore.GREEN + Style.BRIGHT + f"\n???? AI Summary for {user_name}: ")
+        print(Fore.YELLOW + summary)
+    else:
+        print(Fore.RED + "Failed to generate summary.")
+                
